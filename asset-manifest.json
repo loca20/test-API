@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/test-API/static/js/main.8436768a.js",
+    "static/js/787.fcf5d422.chunk.js": "/test-API/static/js/787.fcf5d422.chunk.js",
+    "index.html": "/test-API/index.html",
+    "main.8436768a.js.map": "/test-API/static/js/main.8436768a.js.map",
+    "787.fcf5d422.chunk.js.map": "/test-API/static/js/787.fcf5d422.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.8436768a.js"
+  ]
+}
