@@ -2,7 +2,7 @@
   "name": "kalkulator-walut-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://loca20.github.io/kalkulator-walut-react/",
+  "homepage": "https://loca20.github.io/test-API/",
   "dependencies": {
     "@everapi/currencyapi-js": "^1.0.6",
     "@testing-library/jest-dom": "^5.17.0",
