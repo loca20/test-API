@@ -6,15 +6,8 @@ import Form from "./Form";
 import Result from "./Result";
 import currencies from "./currencies";
 
-// const request = new XMLHttpRequest();
-// request.open('GET', "currencyRates.json");
-// request.responseType = 'json';
-// request.onload = () => {
-// 	console.log(request.response);
-// };
-// request.send();
 
-fetch("currencyRates.json").then((response) => {
+fetch("/test-API/currencyRates.json").then((response) => {
 	response.json().then((currencyRates) => {
 		console.log(currencyRates);
 	});
