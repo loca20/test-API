@@ -14,6 +14,7 @@ const Form = ({
 	clearError,
 	hideResult,
 	isError,
+	ratesData
 }) => {
 	const onFormSubmit = (event) => {
 		event.preventDefault();

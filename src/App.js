@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { useRatesData } from "./useRatesData";
 import Container from "./Container";
 import Header from "./Header";
 import Clock from "./Clock";
 import Form from "./Form";
 import Result from "./Result";
 import currencies from "./currencies";
-
 
 fetch("/test-API/currencyRates.json").then((response) => {
 	response.json().then((currencyRates) => {
@@ -14,6 +14,7 @@ fetch("/test-API/currencyRates.json").then((response) => {
 });
 
 function App() {
+	const ratesData = useRatesData();
 	const [currencyIn, setCurrencyIn] = useState("PLN");
 	const [amountIn, setAmountIn] = useState("");
 	const [currencyOut, setCurrencyOut] = useState("EUR");
@@ -21,6 +22,8 @@ function App() {
 	const [result, setResult] = useState(false);
 	const [amountOut, setAmountOut] = useState("");
 
+
+	console.log(ratesData);
 	const isError = !!errorInfo;
 
 	const clearForm = () => {
@@ -88,6 +91,7 @@ function App() {
 					clearError={clearError}
 					hideResult={hideResult}
 					isError={isError}
+					ratesData={ratesData}
 				/>
 				<Result
 					result={result}
