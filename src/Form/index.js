@@ -1,4 +1,4 @@
-import currencies from "../currencies";
+
 import { StyledForm, Paragraph, ParagraphWithOtherDimensions, Label, Select, Input, ErrorText, Buttons, Button } from "./styled";
 
 const Form = ({
@@ -28,9 +28,9 @@ const Form = ({
 					value={currencyIn}
 					onChange={({ target }) => setCurrencyIn(target.value)}
 					onClick={hideResult}>
-					{currencies.map((currency) => (
-						<option key={currency.name} value={currency.name}>
-							{currency.name}
+					{ratesData.data && Object.keys(ratesData.data.data).map((currency) => (
+						<option key={currency} value={currency}>
+							{currency}
 						</option>
 					))}
 				</Select>
@@ -61,9 +61,9 @@ const Form = ({
 					value={currencyOut}
 					onChange={({ target }) => setCurrencyOut(target.value)}
 					onClick={hideResult}>
-					{currencies.map((currency) => (
-						<option key={currency.name} value={currency.name}>
-							{currency.name}
+					{ratesData.data && Object.keys(ratesData.data.data).map((currency) => (
+						<option key={currency} value={currency}>
+							{currency}
 						</option>
 					))}
 				</Select>
