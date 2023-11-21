@@ -14,7 +14,7 @@ fetch("/test-API/currencyRates.json").then((response) => {
 });
 
 function App() {
-	const ratesData = useRatesData();
+	const {ratesData} = useRatesData();
 	const [currencyIn, setCurrencyIn] = useState("PLN");
 	const [amountIn, setAmountIn] = useState("");
 	const [currencyOut, setCurrencyOut] = useState("EUR");
