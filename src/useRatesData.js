@@ -8,8 +8,29 @@ const JSON_URL =
 export const useRatesData = () => {
 	const [ratesData, setRatesData] = useState({ status: "loading", data: null });
 
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		try {
+	// 			const response = await axios.get(JSON_URL);
+
+	// 			setRatesData({
+	// 				status: "success",
+	// 				data: response.data,
+	// 			});
+	// 		} catch {
+	// 			setRatesData({
+	// 				status: "error",
+	// 				data: null,
+	// 			});
+	// 		}
+	// 	};
+
+	// 	fetchData();
+	// }, []);
+
 	useEffect(() => {
-		const fetchData = async () => {
+		setTimeout(() => {
+		(async () => {
 			try {
 				const response = await axios.get(JSON_URL);
 
@@ -17,15 +38,11 @@ export const useRatesData = () => {
 					status: "success",
 					data: response.data,
 				});
-			} catch {
-				setRatesData({
-					status: "error",
-					data: null,
-				});
+			} catch (error) {
+				setRatesData({ status: "error" });
 			}
-		};
-
-		fetchData();
+		})();
+		}, 3000);
 	}, []);
 
 	return { ratesData };
