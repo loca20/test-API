@@ -5,13 +5,7 @@ import Header from "./Header";
 import Clock from "./Clock";
 import Form from "./Form";
 import Result from "./Result";
-import currencies from "./currencies";
-
-fetch("/test-API/currencyRates.json").then((response) => {
-	response.json().then((currencyRates) => {
-		console.log(currencyRates);
-	});
-});
+import LoadingAndError from "./LoadingAndError";
 
 function App() {
 	const {ratesData} = useRatesData();
@@ -22,8 +16,6 @@ function App() {
 	const [result, setResult] = useState(false);
 	const [amountOut, setAmountOut] = useState("");
 
-
-	console.log(ratesData);
 	const isError = !!errorInfo;
 
 	const clearForm = () => {
@@ -43,14 +35,6 @@ function App() {
 		setAmountIn("");
 	};
 
-	const rateCurrencyIn = currencies.find(
-		({ name }) => name === currencyIn
-	).rate;
-
-	const rateCurrencyOut = currencies.find(
-		({ name }) => name === currencyOut
-	).rate;
-
 	const count = () => {
 		if (amountIn === "") {
 			setErrorInfo("Musisz podać kwotę");
@@ -61,6 +45,9 @@ function App() {
 			setErrorInfo("Podaj kwotę dodatnią!");
 			return;
 		}
+
+const rateCurrencyIn = ratesData?.data?.data?.[currencyIn].value;
+const rateCurrencyOut = ratesData?.data?.data?.[currencyOut].value;
 
 		setResult(true);
 		setAmountOut((+amountIn * rateCurrencyIn) / rateCurrencyOut);
@@ -75,9 +62,9 @@ function App() {
 	return (
 		<>
 			<Header />
-
 			<Container>
 				<Clock />
+				<LoadingAndError ratesData={ratesData}>
 				<Form
 					currencyIn={currencyIn}
 					setCurrencyIn={setCurrencyIn}
@@ -100,6 +87,7 @@ function App() {
 					amountOut={amountOut}
 					currencyOut={currencyOut}
 				/>
+				</LoadingAndError>
 			</Container>
 		</>
 	);
