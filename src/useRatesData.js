@@ -7,26 +7,6 @@ const JSON_URL = "https://raw.githubusercontent.com/loca20/test-API/main/public/
 export const useRatesData = () => {
 	const [ratesData, setRatesData] = useState({ status: "loading", data: null });
 
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		try {
-	// 			const response = await axios.get(JSON_URL);
-
-	// 			setRatesData({
-	// 				status: "success",
-	// 				data: response.data,
-	// 			});
-	// 		} catch {
-	// 			setRatesData({
-	// 				status: "error",
-	// 				data: null,
-	// 			});
-	// 		}
-	// 	};
-
-	// 	fetchData();
-	// }, []);
-
 	useEffect(() => {
 		setTimeout(() => {
 		(async () => {
